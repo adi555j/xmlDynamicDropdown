@@ -12,22 +12,22 @@ window.onload = function(){
 
 //get xml dat from xml file
 var catchXml = function(){
-					var xhttp = new XMLHttpRequest();
-					xhttp.onreadystatechange = function(){
-						if(this.readyState == 4 && this.status == 200){
-								listOfAttributes = [
-									'server-name',
-									'database-name',
-									'config'
-								];
-								listOfAttributesInDiv = listOfAttributes;
-							loader(this, listOfAttributes);
-						}
-					};
-					xhttp.open('GET','data.xml',true);
-					xhttp.send();
+			var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+				listOfAttributes = [
+					'server-name',
+					'database-name',
+					'config'
+				];
+				listOfAttributesInDiv = listOfAttributes;
+				loader(this, listOfAttributes);
+				}
+			};
+			xhttp.open('GET','data.xml',true);
+			xhttp.send();
  
-				};
+		};
 
 //get values from xml and add pass it to select maker
 function loader(xml, listOfAttributes){
