@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<servers>
+	<server1>
+		<server-name1>server details 1</server-name1>
+			<database-name1>db details 11</database-name1>
+			<database-name1>db details 12</database-name1>
+			<database-name1>db details 13</database-name1>
+			<database-name1>db details 14</database-name1>
+			<database-name1>db details 15</database-name1>
+			<database-name1>db details 16</database-name1>
+		<config1>config 11</config1>
+		<config1>config 12</config1>
+		<config1>config 13</config1>
+		<config1>config 14</config1>
+	</server1>
+	<server2>
+		<server-name2>server details 2</server-name2>
+		<database-name2>db details 21</database-name2>
+		<database-name2>db details 22</database-name2>
+		<database-name2>db details 23</database-name2>
+		<config2>config 21</config2>
+		<config2>config 22</config2>
+		<config2>config 23</config2>	
+	</server2>
+	<server3>
+		<server-name3>server details 3</server-name3>
+		<database-name3>db details 31</database-name3>
+		<database-name3>db details 32</database-name3>
+		<database-name3>db details 33</database-name3>
+		<database-name3>db details 34</database-name3>
+		<config3>config 31</config3>
+		<config3>config 32</config3>
+		<config3>config 33</config3>
+	</server3>	
+</servers>
