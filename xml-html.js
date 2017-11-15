@@ -5,34 +5,26 @@ var totalServers = 0;
 var selectedOption = "";
 var listOfAttributesSelectedIndex = 1;
 var listOfAttributesInDiv = [];
-
-window.onload = function(){
-	catchXml();
-};
+var whereToInsert = '';
+var xmlFilePath = '';
 
 //get xml dat from xml file
 var catchXml = function(){
-		    	var xhttp = "";
-			if (window.XMLHttpRequest) {
-				xhttp = new XMLHttpRequest();
-			} else {
-				xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-			xhttp.onreadystatechange = function(){
-				if(this.readyState == 4 && this.status == 200){
-				listOfAttributes = [
-					'server-name',
-					'database-name',
-					'config'
-				];
-				listOfAttributesInDiv = listOfAttributes;
-				loader(this, listOfAttributes);
-				}
-			};
-			xhttp.open('GET','data.xml',true);
-			xhttp.send();
+					var xhttp = "";
+					if (window.XMLHttpRequest) {
+						xhttp = new XMLHttpRequest();
+					} else {
+						xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					xhttp.onreadystatechange = function(){
+						if(this.readyState == 4 && this.status == 200){
+							loader(this, listOfAttributesInDiv);
+						}
+					};
+					xhttp.open('GET',xmlFilePath,true);
+					xhttp.send();
  
-		};
+				};
 
 //get values from xml and add pass it to select maker
 function loader(xml, listOfAttributes){
@@ -56,11 +48,11 @@ function loader(xml, listOfAttributes){
 		{
 			listOfValues = [];
 			var l = 1;
-			while(typeof(xmlDoc.getElementsByTagName('server-name' + l)[0].childNodes[0].nodeValue) !== undefined)
+			while(typeof(xmlDoc.getElementsByTagName(listOfAttributes[0] + l)[0].childNodes[0].nodeValue) !== undefined)
 			{
-				listOfValues.push(xmlDoc.getElementsByTagName('server-name' + l)[0].childNodes[0].nodeValue);
+				listOfValues.push(xmlDoc.getElementsByTagName(listOfAttributes[0] + l)[0].childNodes[0].nodeValue);
 				try{
-					if(xmlDoc.getElementsByTagName('server-name' + (l+1))[0].childNodes[0].nodeValue === undefined){
+					if(xmlDoc.getElementsByTagName(listOfAttributes[0] + (l+1))[0].childNodes[0].nodeValue === undefined){
 					}
 				}
 				catch(e){	
@@ -84,11 +76,11 @@ function loader(xml, listOfAttributes){
 
 //make select dropdown from the xml data passed in listofelements
 function insertDiv(listOfElements){
-	var div = document.getElementById("t");
+	var div = document.getElementById(whereToInsert);
 	var select = document.createElement('select');	
 	if(checkForFirstRun == 1){ 
-		select.name = 'servers';
-		select.id = 'servers';
+		select.name = listOfAttributesInDiv[0];
+		select.id = listOfAttributesInDiv[0];
 	}
 	if(checkForFirstRun == 11){ 
 		select.name = listOfAttributesInDiv[listOfAttributesSelectedIndex];
@@ -123,15 +115,15 @@ function insertDiv(listOfElements){
 
 //if the main node is changed... change the whole dropdown
 function changeInServer(){
-		document.getElementById('servers').addEventListener('change',function(){
+		document.getElementById(listOfAttributesInDiv[0]).addEventListener('change',function(){
 			checkForFirstRun = 0;
 			listOfAttributesSelectedIndex = 1;
 			try{
-				var e = document.getElementById("servers");
+				var e = document.getElementById(listOfAttributesInDiv[0]);
 				selectedOption = e.options[e.selectedIndex].text;
 				if(nodeElement <= totalServers){
 					nodeElement = e.selectedIndex + 1;
-					document.getElementById("t").innerHTML = "";		
+					document.getElementById(whereToInsert).innerHTML = "";		
 					catchXml();	
 				}
 				else
@@ -144,16 +136,13 @@ function changeInServer(){
 	checkForFirstRun = 1;
 }
 
-//when submit button is clicked.. do things
-function submitClicked(){
-	var e = document.getElementById("servers");
-	selectedOption = e.options[e.selectedIndex].text;	
-	alert(selectedOption);	
-	var e = document.getElementById("database-name");
-	selectedOption = e.options[e.selectedIndex].text;	
-	alert(selectedOption);
-	var e = document.getElementById("config");
-	selectedOption = e.options[e.selectedIndex].text;	
-	alert(selectedOption);	
+//data => xml tags ,  where to insert in html , xmlfilepath
+function addXmlData(data, insertWhereInHtml, path){
+	for(var i=0; i<data.length; i++){
+		listOfAttributesInDiv.push(data[i]);
+	}
+	whereToInsert = insertWhereInHtml;
+	xmlFilePath = path;
+	catchXml();	
 }
 

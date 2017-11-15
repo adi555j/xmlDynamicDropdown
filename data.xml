@@ -2,16 +2,18 @@
 <servers>
 	<server1>
 		<server-name1>server details 1</server-name1>
-			<database-name1>db details 11</database-name1>
-			<database-name1>db details 12</database-name1>
-			<database-name1>db details 13</database-name1>
-			<database-name1>db details 14</database-name1>
-			<database-name1>db details 15</database-name1>
-			<database-name1>db details 16</database-name1>
+		<database-name1>db details 11</database-name1>
+		<database-name1>db details 12</database-name1>
+		<database-name1>db details 13</database-name1>
+		<database-name1>db details 14</database-name1>
+		<database-name1>db details 15</database-name1>
+		<database-name1>db details 16</database-name1>
 		<config1>config 11</config1>
 		<config1>config 12</config1>
 		<config1>config 13</config1>
 		<config1>config 14</config1>
+		<memory-pool1>memory pool 11</memory-pool1>
+		<memory-pool1>memory pool 12</memory-pool1>
 	</server1>
 	<server2>
 		<server-name2>server details 2</server-name2>
@@ -20,7 +22,9 @@
 		<database-name2>db details 23</database-name2>
 		<config2>config 21</config2>
 		<config2>config 22</config2>
-		<config2>config 23</config2>	
+		<config2>config 23</config2>
+		<memory-pool2>memory pool 21</memory-pool2>
+		<memory-pool2>memory pool 22</memory-pool2>		
 	</server2>
 	<server3>
 		<server-name3>server details 3</server-name3>
@@ -31,5 +35,7 @@
 		<config3>config 31</config3>
 		<config3>config 32</config3>
 		<config3>config 33</config3>
+		<memory-pool3>memory pool 13</memory-pool3>
+		<memory-pool3>memory pool 13</memory-pool3>		
 	</server3>	
 </servers>

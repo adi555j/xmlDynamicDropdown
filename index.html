@@ -14,9 +14,36 @@
 		
 		</div>
 		<div id="submit-btn">
+		
+		<!-- You can define what happens on submit click -->
 			<button type="button" onclick="submitClicked()">submit</button>
 		</div>
 		<script src="xml-html.js"></script>
+		<script>
+		
+		// data array contains the xml tag information. It should be in the format
+		// as same as in data.xml
+		// Then call addXmlData() function with first parameter as the data array
+		// 2nd parameter as the html div where you want to insert it and 3rd 
+		// parameter the path where the xml file is located
+		var data = [
+			'server-name',
+			'database-name',
+			'config',
+			'memory-pool'
+		]; 
+		addXmlData(data, 't', 'data.xml');
+		
+		//when submit button is clicked.. do things
+		function submitClicked(){
+			for(var i=0; i<listOfAttributesInDiv.length; i++)
+			{
+				var e = document.getElementById(listOfAttributesInDiv[i]);
+				selectedOption = e.options[e.selectedIndex].text;	
+				alert(selectedOption);	
+			}			
+		}		
+		</script>
 	</body>
 
 </html>
