@@ -5,6 +5,7 @@ create dropdown from data fetched from xml. Documentation is written in index.ht
 
 
 #Rendering main node after reading data from xml 
+
 ![image](https://user-images.githubusercontent.com/29003275/125933042-9ba0907c-1373-4365-acde-636489c1dca1.png)
 
 #Once the main node value changes the subsequent node values changes accordingly 
